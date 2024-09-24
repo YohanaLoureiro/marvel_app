@@ -1,0 +1,25 @@
+# Compiled code
+build/
+*.appcache
+packages/
+.dart_tool/
+.flutter-plugins/
+.pub-cache/
+.fvm/
+
+# IDE files
+.vscode/
+*.iml
+*.idea
+
+# Logs
+logs/
+
+# Local configuration
+.dart_tool/package_config.json
+.metadata
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
