@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:marvel_app/screens/home_screen.dart';
-import 'screens/splash_screen.dart';
+// ignore: depend_on_referenced_packages
+import 'package:dio/dio.dart';
+import 'presentation/pages/splash_screen.dart';
+import 'presentation/pages/character_screen.dart';
+import 'data/data_sources/character_remote_data_source.dart';
+import 'data/repositories/character_repository_impl.dart';
+import 'presentation/cubits/character_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  final dio = Dio(BaseOptions(baseUrl: 'https://gateway.marvel.com/'));
+  final remoteDataSource = CharacterRemoteDataSource(dio);
+  final repository = CharacterRepository(remoteDataSource);
+
+  runApp(MyApp(repository: repository));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final CharacterRepository repository;
+
+  const MyApp({Key? key, required this.repository}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +27,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
       routes: {
-        '/home': (context) => const HomeScreen(),
+        '/character': (context) => BlocProvider(
+              create: (context) => CharacterCubit(repository),
+              child: const CharacterScreen(),
+            ),
       },
     );
   }
