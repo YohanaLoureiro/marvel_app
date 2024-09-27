@@ -17,7 +17,6 @@ class SplashScreenState extends State<SplashScreen> {
   void _navigateToCharacterScreen() async {
     await Future.delayed(const Duration(seconds: 3));
 
-    // Verifica se o widget ainda está montado antes de navegar
     if (mounted) {
       Navigator.pushReplacementNamed(context, '/character');
     }
