@@ -6,7 +6,7 @@ class CharacterRepository {
 
   CharacterRepository(this.remoteDataSource);
 
-  Future<List<CharacterModel>> getCharacters(int offset) {
-    return remoteDataSource.fetchCharacters(offset);
+  Future<List<CharacterModel>> getCharacters(int offset, {String name = ''}) {
+    return remoteDataSource.fetchCharacters(offset, name: name);
   }
 }
