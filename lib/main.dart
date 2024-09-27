@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:dio/dio.dart';
-import 'presentation/pages/splash_screen.dart';
-import 'presentation/pages/character_screen.dart';
+import 'presentation/screens/splash_screen.dart';
+import 'presentation/screens/character_screen.dart';
 import 'data/data_sources/character_remote_data_source.dart';
 import 'data/repositories/character_repository_impl.dart';
-import 'presentation/cubits/character_cubit.dart';
+import 'domain/cubits/character_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
