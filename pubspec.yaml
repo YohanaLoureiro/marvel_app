@@ -19,6 +19,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mockito: ^5.3.2
+  build_runner: ^2.3.3
   flutter_lints: ^4.0.0
   fake_async: ^1.2.0
   dio: ^5.0.0
